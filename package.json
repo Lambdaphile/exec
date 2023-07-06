@@ -1,0 +1,20 @@
+{
+  "name": "exec",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "reset-dev": "node scripts/exec.js --cmd=\"git push origin -d dev\" && node scripts/exec.js --cmd=\"git checkout -b dev main\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Lambdaphile/exec.git"
+  },
+  "author": "Lambdaphile",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Lambdaphile/exec/issues"
+  },
+  "homepage": "https://github.com/Lambdaphile/exec#readme"
+}
