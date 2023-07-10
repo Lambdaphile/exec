@@ -5,7 +5,12 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "reset-dev": "node scripts/exec.js --cmd=\"git push origin -d dev\" && node scripts/exec.js --cmd=\"git checkout -b dev main\""
+    "reset-dev": "node scripts/exec.js --cmd=\"git push origin -d dev; git checkout -b dev main\" && node scripts/exec.js --cmd=\"git push origin -d dev; git checkout -b dev main\" --folder=\"/src/plugins\"",
+    "rel:new": "node scripts/exec.js --cmd=\"git checkout -b \"$npm_config_branch && node scripts/exec.js --cmd=\"git checkout -b \"$npm_config_branch --folder=\"/src/plugins\"",
+    "rel:merge": "",
+    "rel:checkout": "",
+    "rel:tag": "",
+    "rel:checkout-tag": ""
   },
   "repository": {
     "type": "git",
