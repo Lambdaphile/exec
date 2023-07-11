@@ -4,13 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "reset-dev": "node scripts/exec.js --cmd=\"git push origin -d dev; git checkout -b dev main\" && node scripts/exec.js --cmd=\"git push origin -d dev; git checkout -b dev main\" --folder=\"/src/plugins\"",
-    "rel:new": "node scripts/exec.js --cmd=\"git checkout -b \"$npm_config_branch && node scripts/exec.js --cmd=\"git checkout -b \"$npm_config_branch --folder=\"/src/plugins\"",
-    "rel:merge": "",
-    "rel:checkout": "",
-    "rel:tag": "",
-    "rel:checkout-tag": ""
+    "install-plugins": "mkdir ./src/plugins;git clone https://github.com/Lambdaphile/plugin1 ./src/plugins/plugin1; git clone https://github.com/Lambdaphile/plugin2 ./src/plugins/plugin2; git clone https://github.com/Lambdaphile/plugin3 ./src/plugins/plugin3",
+    "check-repo-status": "node scripts/exec.js --cmd='git status' && node scripts/exec.js --cmd='git status' --dir='src/plugins' --subdirs",
+    "reset-dev": "node scripts/exec.js --cmd='git checkout main && git push origin -d dev && git branch -D dev && git pull origin main && git checkout -b dev && git push origin dev' & node scripts/exec.js --cmd='git checkout main && git push origin -d dev && git branch -D dev && git pull origin main && git checkout -b dev && git push origin dev' --dir='src/plugins' --subdirs",
+    "reset-branch": "node scripts/exec.js --cmd=\"git checkout main && git push origin -d $npm_config_branch && git branch -D $npm_config_branch && git pull origin main && git checkout -b $npm_config_branch && git push origin $npm_config_branch\" && node scripts/exec.js --cmd=\"git checkout main && git push origin -d $npm_config_branch && git branch -D $npm_config_branch && git pull origin main && git checkout -b $npm_config_branch && git push origin $npm_config_branch\" --dir='src/plugins' --subdirs",
+    "exec-repo": "node scripts/exec.js --cmd=\"$npm_config_cmd\" && node scripts/exec.js --cmd=\"$npm_config_cmd\" --dir='src/plugins' --subdirs"
   },
   "repository": {
     "type": "git",
@@ -21,5 +19,10 @@
   "bugs": {
     "url": "https://github.com/Lambdaphile/exec/issues"
   },
-  "homepage": "https://github.com/Lambdaphile/exec#readme"
+  "homepage": "https://github.com/Lambdaphile/exec#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "chalk": "^1.1.3",
+    "minimist": "^1.2.8"
+  }
 }
